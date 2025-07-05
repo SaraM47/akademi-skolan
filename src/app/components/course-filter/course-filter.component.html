@@ -1,0 +1,30 @@
+<div class="filter-panel">
+    <label for="searchInput" class="hidden-element">Sök:</label>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Sök kursnamn eller kurskod"
+      [(ngModel)]="searchTerm"
+      (input)="onFilterChange()" />
+  
+    <label for="subjectSelect" class="hidden-element">Ämne:</label>
+    <div class="custom-select-wrapper">
+      <select id="subjectSelect" [(ngModel)]="selectedSubject" (change)="onFilterChange()">
+        <option value="">Alla ämnen</option>
+        <option *ngFor="let subj of uniqueSubjects" [value]="subj">{{ subj }}</option>
+      </select>
+      <i class="bi bi-caret-down-fill"></i>
+    </div>
+  
+    <label for="sortSelect" class="hidden-element" >Sortera efter:</label>
+    <div class="custom-select-wrapper">
+      <select id="sortSelect" [(ngModel)]="sortBy" (change)="onFilterChange()">
+        <option value="courseName">Sortera: Namn</option>
+        <option value="courseCode">Sortera: Kod</option>
+        <option value="points">Sortera: Poäng</option>
+        <option value="subject">Sortera: Ämne</option>
+      </select>
+      <i class="bi bi-caret-down-fill"></i>
+    </div>
+  </div>
+  
