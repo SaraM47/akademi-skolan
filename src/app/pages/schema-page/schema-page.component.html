@@ -1,0 +1,25 @@
+<section class="schema-header">
+  <h1>Mitt Ramschema</h1>
+
+  <div *ngIf="schema.length === 0">
+    <p>Inga kurser tillagda än. Besök <a routerLink="/kurser">kurssidan</a> för att börja bygga ditt ramschema.</p>
+  </div>
+
+  <div *ngIf="schema.length > 0">
+    <div class="summary">
+      <p><strong>Antal kurser:</strong> {{ schema.length }}</p>
+      <p><strong>Totala högskolepoäng:</strong> {{ totalPoints }} hp</p>
+    </div>
+
+    <button class="clear-button" (click)="onClearSchema()">Töm ramschema</button>
+
+    <div class="schema-grid">
+      <div class="card" *ngFor="let course of schema">
+        <h2>{{ course.courseCode }} – {{ course.courseName }}</h2>
+        <p><strong>Poäng:</strong> {{ course.points }} hp</p>
+        <p><strong>Ämne:</strong> {{ course.subject }}</p>
+        <button class="remove-button" (click)="onRemove(course.courseCode)">Ta bort</button>
+      </div>
+    </div>
+  </div>
+</section>
