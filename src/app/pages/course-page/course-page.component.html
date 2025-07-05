@@ -1,0 +1,90 @@
+<section class="course-intro">
+  <h1>Kursutbud</h1>
+  <h2>Alla kurser</h2>
+  <p>
+    Bläddra bland hela vårt kursutbud och börja planera din utbildning redan idag.
+    Använd filtren för att hitta kurser som passar dig – oavsett ämne eller nivå. <br><br>
+    Klicka på <strong>"Lägg till"</strong> för att inkludera en kurs i ditt personliga ramschema.
+  </p>
+</section>
+
+<app-course-filter
+  [courses]="courses"
+  (filterChanged)="onFilterChanged($event)">
+</app-course-filter>
+
+<p *ngIf="schemaList.length > 0" class="schema-summary">
+  Ditt ramschema innehåller <strong>{{ schemaList.length }}</strong> kurser ({{ totalPoints }} hp)
+</p>
+
+<div class="table-wrapper">
+  <table class="course-table">
+    <thead>
+      <tr>
+        <th scope="col" (click)="sort('courseCode')">
+          Kurskod <i class="bi" [ngClass]="getSortIcon('courseCode')"></i>
+        </th>
+        <th scope="col" (click)="sort('courseName')">
+          Namn <i class="bi" [ngClass]="getSortIcon('courseName')"></i>
+        </th>
+        <th scope="col" (click)="sort('points')">
+          Poäng <i class="bi" [ngClass]="getSortIcon('points')"></i>
+        </th>
+        <th scope="col" (click)="sort('subject')">
+          Ämne <i class="bi" [ngClass]="getSortIcon('subject')"></i>
+        </th>
+        <th scope="col">Kursplan</th>
+        <th scope="col">Åtgärd</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr 
+        *ngFor="let course of filteredCourses()" 
+        [class.added]="addedCourseCodes.has(course.courseCode)">
+        <td>{{ course.courseCode }}</td>
+        <td>{{ course.courseName }}</td>
+        <td>{{ course.points }}</td>
+        <td>{{ course.subject }}</td>
+        <td>
+          <a [href]="course.syllabus" target="_blank" rel="noopener noreferrer">
+            Kursplan
+          </a>
+        </td>
+        <td>
+          <button
+            (click)="onAddToSchema(course)"
+            [disabled]="isCourseInSchema(course)">
+            {{ isCourseInSchema(course) ? 'Tillagd' : 'Lägg till' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Result counter and rates per page -->
+<div class="pagination-info">
+  <div class="range-info">
+    Visar {{ startIndex }} till {{ endIndex }} av {{ filteredCoursesInternal().length }} kurser
+  </div>
+
+  <div class="items-per-page">
+    <label for="itemsSelect">Kurser per sida:</label>
+    <select id="itemsSelect" [ngModel]="itemsPerPage" (ngModelChange)="onItemsPerPageChange($event)">
+      <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<!-- Paginering -->
+<div class="pagination-controls" *ngIf="totalPages > 1">
+  <button [disabled]="page === 1" (click)="prevPage()">
+    <i class="bi bi-chevron-left"></i> Föregående
+  </button>
+  <span>Sida {{ page }} av {{ totalPages }}</span>
+  <button [disabled]="page === totalPages" (click)="nextPage()">
+    Nästa <i class="bi bi-chevron-right"></i>
+  </button>
+</div>
