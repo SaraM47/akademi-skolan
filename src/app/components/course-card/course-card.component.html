@@ -1,0 +1,10 @@
+<div class="card">
+    <h3>{{ course.courseCode }} – {{ course.courseName }}</h3>
+    <p><strong>Poäng:</strong> {{ course.points }} hp</p>
+    <p><strong>Ämne:</strong> {{ course.subject }}</p>
+    <p><a href="{{ course.syllabus }}" target="_blank"> Kursplan</a></p>
+  
+    <button (click)="addCourse()" [disabled]="isInSchema">
+      {{ isInSchema ? 'Tillagd' : ' Lägg till' }}
+    </button>
+  </div>
