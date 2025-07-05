@@ -63,3 +63,11 @@ Följande valfria funktioner har implementerats utöver grundkraven:
 **Mörkt läge**
 - Växla mellan ljust och mörkt tema med knapp i navigationsmenyn som sparar användarens val och även gäller för hela webbplatsen.
 
+**Mer utvecklat användargränssnitt**
+Skulle nog kunna säga layout har bland annat interaktiva element, tydlig navigering, dropdown-menyer och realtidsuppdatering.
+
+**Mer tilltalande grafisk design**
+Slående visuellt intryck med enhetliga färger med åtanvänder en bestämd färgpalett, skuggor, ikoner, hero-bilder, responsiva layouter och smidig typografi.
+
+
+
