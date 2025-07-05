@@ -4,76 +4,42 @@ Akademiskolan är ett fiktivt lärosäte, och denna webbplats är skapad som en 
 ---
 
 ## Komponent: Kurssidan (`course-page.component.ts`)
-Kurssidan ansvarar för:
-- Hämtning av kursdata via `CourseService`
-- Filtrering (sökterm + ämne)
-- Sortering (kurskod, namn, poäng, ämne)
-- Pagination med sidstorlek 5–100
-- Visuell effekt vid "Lägg till kurs"
-- Statistikruta: antal valda kurser + total hp
-
-Data skickas till en tabellstruktur och kontrolleras med inbyggd sortering, navigering och filtrering. Kurser kan läggas till ramschemat med knapptryck.
+Kurssidan har som ansvar att hämta kursdata från CourseService och presentera det i en strukturerad tabell. Här erbjuds användaren funktioner för att filtrera kurser baserat på fritext och ämne, samt möjlighet att sortera listan efter kurskod, kursnamn, antal poäng eller ämne. Dessutom hanteras paginering med ett valbart antal kurser per sida, från 5 upp till 100. När användaren klickar på "Lägg till" för att inkludera en kurs i sitt ramschema, visas en visuell animation som förstärker interaktionen. En realtidsuppdaterad statistikruta visar samtidigt antalet valda kurser samt den sammanlagda poängsumman. All interaktion sker utan sidomladdning och med fokus på användarupplevelse.
 
 ---
 
 ## Komponent: Ramschemasidan (`schema-page.component.ts`)
-- Visar valda kurser från `localStorage` (via `SchemaService`)
-- Sammanställer totalt antal kurser och högskolepoäng
-- Möjlighet att ta bort enskilda kurser eller tömma allt
-- Kurskort visas i ett grid-layout
-
-Sidan innehåller ingen pagination eller filtrering, vilket var ett medvetet val.
+Ramschemasidan visar användarens valda kurser som hämtas från localStorage via SchemaService. Informationen presenteras i form av kort inom en grid-layout, där varje kort innehåller kursinformation samt en knapp för att ta bort kursen. Användaren kan även välja att rensa hela sitt ramschema med ett enda klick. Totalt antal kurser och summan av högskolepoängen summeras automatiskt. Sidan innehåller varken filtrering eller pagination, vilket är ett medvetet val för att hålla gränssnittet enkelt.
 
 ---
 
 ## Komponent: Startsidan (`home-page.component.ts`)
-En enkel men visuell introduktionssida:
-- Hero-bildspel med rubrik och call-to-action-knapp
-- Introduktionstext
-- Funktionella ikoner med animation
-- Kontaktinformation
-- Helt responsiv
+Startsidan fungerar som en visuell introduktion till webbplatsen. Den innehåller ett hero-segment med bildspel, rubrik och en tydlig call-to-action-knapp. Under detta följer en introduktionstext, sektioner med ikoner och animationer som beskriver funktionaliteten, samt kontaktinformation. Sidan är helt responsiv och fungerar sömlöst både på mobil och desktop, vilket skapar ett välkomnande första intryck för användaren.
 
 ---
 
 ## Modell: Kurs (`course.ts`)
-Definierar kursens struktur:
-- courseCode
-- subject
-- courseName
-- points
-- syllabus (URL)
-- etc.
+Denna modell beskriver kursobjektets struktur och används i hela applikationen för typning. Den innehåller bland annat fälten courseCode, subject, courseName, points och syllabus. Dessa egenskaper möjliggör en enhetlig och typad hantering av kursdata i hela Angular-applikationen.
 
 ---
 
 ## Service: `CourseService`
-- Hämtar kurslistan från JSON-filen (lokalt i `assets`)
-- Returnerar en Observable för prenumeration i komponenter
+CourseService ansvarar för att läsa in kurslistan från en lokal JSON-fil placerad i projektets assets-mapp. Tjänsten returnerar en Observable<Course[]> som kan användas av komponenter för att prenumerera på och hantera kursdatan på ett reaktivt sätt.
 
 ---
 
 ## Service: `SchemaService`
-Hanterar allt kring användarens ramschema:
-- `addCourse(course)`
-- `removeCourse(code)`
-- `getSchema()`
-- Internt användande av `localStorage` för att spara/bibehålla ramschemat mellan sessioner
+Denna service ansvarar för att hantera användarens ramschema. Genom metoder som addCourse(course), removeCourse(code) och getSchema() kan komponenter manipulera innehållet i schemat. All data lagras i localStorage för att bevaras mellan sessioner, och uppdateras i realtid vid varje ändring. Servicen säkerställer även att inga dubbletter kan läggas till.
 
 ---
 
 ## Komponent: Filterpanel (`course-filter.component.ts`)
-- Ger användaren möjlighet att:
-  - Söka via fritext
-  - Filtrera på ämne
-  - Sortera efter olika kolumner
-- Har visuell dropdown med pilikon
-- Triggerar `filterChanged`-event till föräldrakomponent
+Filterpanelen ger användaren kontroll över hur kurslistan visas. Den innehåller ett fritextfält för sökning, en ämnesdropdown för filtrering samt ett sorteringsval. En visuell dropdown pilikon visar tydligt att elementen är interaktiva. Varje gång användaren gör en ändring skickas en filterChanged-händelse till föräldrakomponenten, vilket uppdaterar kurslistan i realtid.
 
 ---
 
 ## Komponent: Kurskort (`course-card.component.ts`)
-Används i framtida designförbättringar. Förberett med struktur för att kunna visa varje kurs som ett separat kort.
+Kurskortskomponenten är framtagen för att kunna erbjuda ett alternativt grafiskt läge för kursvisning i framtida versioner. Den är förberedd med struktur och grundläggande styling för att kunna visa kursinformation som separata kort snarare än i tabellform.
 
 ---
 
