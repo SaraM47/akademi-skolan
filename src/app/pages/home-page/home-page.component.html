@@ -1,0 +1,75 @@
+<section class="hero">
+    <!-- Picturelayer -->
+    <div class="hero-images">
+        <img *ngFor="let slide of slides; let i = index" [src]="slide.src" [alt]="slide.alt" [class.active]="i === currentIndex" />
+    </div>
+
+    <!-- Text overlay -->
+    <div class="hero-overlay">
+        <h1 class="reveal">Välkomna till Akademinskolan</h1>
+        <p class="reveal"><em>Planera din utbildning – skapa ditt eget ramschema</em></p>
+        <a routerLink="/kurser" class="cta reveal">Se vårt kursutbud</a>
+    </div>
+</section>
+
+<!-- Introductionstext -->
+<section class="intro reveal">
+    <h2>Planera dina kurser med ramschema</h2>
+    <p>
+        På Akademi Skolan kan du utforska kurser och sätta ihop din egen utbildningsplan.
+        Välj kurser som passar dig och bygg ett personligt ramschema direkt i webbläsaren.
+    </p>
+</section>
+
+
+<section class="stats reveal">
+    <h3>Statistik från kurskatalogen</h3>
+    <p>Vår databas innehåller ett omfattande urval av kurser från hela universitetet. Statistiken nedan ger dig en snabb överblick över kursutbudet och ämnesbredden.</p>
+    <p> <br>
+        Totalt antal kurser: <strong>{{ stats.total }}</strong> |
+        Unika ämnen: <strong>{{ stats.subjects }}</strong> |
+        Maxpoäng: <strong>{{ stats.maxPoints }} hp</strong>
+    </p>
+</section>
+
+<!-- Function boxes -->
+<section class="features">
+    <div class="feature reveal">
+        <i class="bi bi-journal-bookmark"></i>
+        <h3>Utforska 500+ kurser</h3>
+        <p>
+            Bläddra i vår katalog med kurser från hela landet. Sök, filtrera och sortera efter ämne,
+            nivå eller poäng.
+        </p>
+    </div>
+    <div class="feature reveal">
+        <i class="bi bi-ui-checks"></i>
+        <h3>Bygg ditt eget ramschema</h3>
+        <p>
+            Lägg till kurser direkt från listan. Du får direkt överblick över antal kurser och poäng.
+        </p>
+    </div>
+    <div class="feature reveal">
+        <i class="bi bi-save"></i>
+        <h3>Spara automatiskt i webbläsaren</h3>
+        <p>
+            Din plan sparas lokalt med hjälp av localStorage – så du kan fortsätta där du slutade.
+        </p>
+    </div>
+</section>
+
+<!-- Contact section -->
+<section class="contact reveal">
+    <div class="contact-item">
+        <i class="bi bi-telephone"></i>
+        <h3>010-123 45 67</h3>
+    </div>
+    <div class="contact-item">
+        <i class="bi bi-envelope"></i>
+        <h3>info&#64;akademiskolan.se</h3>
+    </div>
+    <div class="contact-item">
+        <i class="bi bi-geo-alt"></i>
+        <h3>Campusvägen 12<br>Stockholm</h3>
+    </div>
+</section>
