@@ -1,1 +1,108 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lora", serif;
+}
+
+.hidden-element {
+  position: absolute;
+  left: -9999px;
+}
+
+.theme-toggle {
+    background-color: #11AAB0;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 1rem;
+  
+    &:hover {
+      background-color: #63D0D4;
+    }
+  
+    &.dark {
+      background-color: #333;
+      color: #fff;
+      border-color: #666;
+  
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+  
+  /* Dark mode */
+  .dark-theme {
+    background-color: #000;
+    color: #f0f0f0;
+  
+    footer {
+      background-color: #000;
+      color: #f0f0f0;
+  
+      &::before {
+        background: none;
+      }
+  
+      &::after {
+        background: rgba(0, 0, 0, 0.4);
+      }
+  
+      .footer-columns {
+        a,
+        i {
+          color: #f0f0f0;
+        }
+  
+        button {
+          background: #444;
+  
+          &:hover {
+            background: #666;
+          }
+        }
+      }
+    }
+
+    app-home-page h1,
+    app-home-page h3,
+    app-home-page em,
+    app-home-page .logo strong {
+      color: #000 !important;
+    }
+
+    app-home-page .contact-item h3 {
+        color: #fff !important;
+      }
+  
+    app-course-page h1,
+    app-course-page h2,
+    app-course-page p {
+      color: #000 !important;
+    }
+  
+    app-schema-page h2 {
+      color: #000 !important;
+    }
+  }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+}
