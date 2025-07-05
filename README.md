@@ -79,6 +79,7 @@ Används i framtida designförbättringar. Förberett med struktur för att kunn
 
 ## Extra funktionalitet
 Följande valfria funktioner har implementerats utöver grundkraven:
+
 **Paginering av kurser**
 - Med valbara alternativ: 5, 10, 20, 30, 50, 100 kurser/sida.
 - Användaren kan växla sidantal, se aktuell sida och navigera framåt/bakåt.
