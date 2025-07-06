@@ -1,0 +1,72 @@
+@use '../../../themes.scss' as *;
+.schema-header {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  h1 {
+    font-size:$font-size-large;
+    margin-bottom: 1rem;
+  }
+
+  .summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    font-size: $font-size-medium;
+    margin-bottom: 1rem;
+  }
+
+  .clear-button {
+    background-color: $color-clear-btn;
+    color: $color-white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 2rem;
+
+    &:hover {
+      background-color: $color-clear-btn-hover;
+    }
+  }
+}
+
+.schema-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: $color-white;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: $shadow-light-card;
+  padding: 1rem;
+
+  h2 {
+    font-size: $font-size-medium;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0.3rem 0;
+    color: $color-neutral-dark;
+  }
+
+  .remove-button {
+    background-color: $color-primary;
+    border: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    margin-top: 0.6rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-warning;
+    }
+  }
+}
