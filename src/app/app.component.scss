@@ -1,16 +1,15 @@
-@use '../themes.scss' as *;
+@use "../themes.scss" as *;
 
 :host {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    line-height: 1.6;
-  }
-  
-  main {
-    flex: 1;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+}
 
+main {
+  flex: 1;
+}
 
 .logo {
   display: flex;
@@ -125,126 +124,124 @@
   }
 }
 footer {
-    position: relative;
-    background-color: $color-white;
-    padding: 3rem 1rem;
-    color: $color-neutral-dark;
-    z-index: 1;
-    overflow: hidden;
-  
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('/assets/background-pattern.jpg') repeat;
-      opacity: 0.5;
-      z-index: -2;
+  position: relative;
+  background-color: $color-white;
+  padding: 3rem 1rem;
+  color: $color-neutral-dark;
+  z-index: 1;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/assets/background-pattern.jpg") repeat;
+    opacity: 0.5;
+    z-index: -2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+  }
+
+  .footer-columns {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    font-size: $font-size-medium;
+
+    div {
+      flex: 1 1 250px;
+      text-align: center;
+
+      h4 {
+        margin-bottom: 0.5rem;
+        font-size: $font-size-medium;
+      }
+
+      a {
+        display: inline-block;
+        margin-bottom: 0.3rem;
+        text-decoration: none;
+        color: $color-black;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      i {
+        font-size: 2rem;
+        margin: 0.3rem;
+        color: $color-black;
+      }
+
+      input {
+        padding: 0.4rem;
+        margin-top: 0.4rem;
+        width: 100%;
+        max-width: 220px;
+      }
+
+      button {
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: $color-black;
+        color: $color-white;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+          background: $color-dark-bg;
+        }
+      }
     }
-  
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.5);
-      z-index: -1;
-    }
-  
+  }
+
+  // Responsiv design
+  @media (max-width: 768px) {
     .footer-columns {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-      font-size: $font-size-medium;
-  
-      div {
-        flex: 1 1 250px;
-        text-align: center;
-  
-        h4 {
-          margin-bottom: 0.5rem;
-          font-size: $font-size-medium;
-        }
-  
-        a {
-          display: inline-block;
-          margin-bottom: 0.3rem;
-          text-decoration: none;
-          color: $color-black;
-  
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-  
-        i {
-          font-size: 2rem;
-          margin: 0.3rem;
-          color: $color-black;
-        }
-  
-        input {
-          padding: 0.4rem;
-          margin-top: 0.4rem;
-          width: 100%;
-          max-width: 220px;
-        }
-  
-        button {
-          margin-top: 0.5rem;
-          padding: 0.5rem 1rem;
-          background: $color-black;
-          color: $color-white;
-          border: none;
-          font-weight: bold;
-          cursor: pointer;
-  
-          &:hover {
-            background: $color-dark-bg;
-          }
-        }
-      }
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1rem 0;
     }
 
+    .footer-columns div {
+      flex: 1 1 auto;
+      padding: 0.5rem 0;
+    }
+  }
+}
 
-    
-    // Responsiv design
-    @media (max-width: 768px) {
-      .footer-columns {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.2rem;
-        padding: 1rem 0;
-      }
-  
-      .footer-columns div {
-        flex: 1 1 auto;
-        padding: 0.5rem 0;
+:host-context(.dark-theme) .navbar {
+  background-color: $color-black;
+
+  .menu-toggle {
+    color: $color-white;
+  }
+
+  nav {
+    background: $color-black;
+  }
+  nav a {
+    color: $color-white;
+
+    &:hover,
+    &.active-link {
+      color: $color-dark-mode-hover-links;
+
+      &::after {
+        background: $color-dark-mode-hover-links;
       }
     }
   }
-
-  :host-context(.dark-theme) .navbar {
-    background-color: $color-black;
-
-    .menu-toggle {
-      color: $color-white;
-    }
-
-    nav {
-      background: $color-black;
-    }
-    nav a {
-      color: $color-white;
-
-      &:hover,
-      &.active-link {
-        color: $color-dark-mode-hover-links;
-  
-        &::after {
-          background: $color-dark-mode-hover-links;
-        }
-      }
-    }
-  }
+}
