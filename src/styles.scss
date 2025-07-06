@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@use './themes.scss' as varibales;
+
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 
 * {
@@ -12,7 +13,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Lora", serif;
+  font-family: varibales.$font-base;
 }
 
 .hidden-element {
@@ -21,7 +22,7 @@ html {
 }
 
 .theme-toggle {
-    background-color: #11AAB0;
+    background-color:varibales.$color-primary;
     border: none;
     border-radius: 8px;
     padding: 0.4rem 0.6rem;
@@ -31,28 +32,27 @@ html {
     margin-left: 1rem;
   
     &:hover {
-      background-color: #63D0D4;
+      background-color: varibales.$color-hover;
     }
   
     &.dark {
-      background-color: #333;
-      color: #fff;
-      border-color: #666;
+      background-color: varibales.$color-neutral-dark;
+      color: varibales.$color-white;
+      border-color: varibales.$color-border;
   
       &:hover {
-        background-color: #555;
+        background-color: varibales.$color-dark-bg;
       }
     }
   }
   
   /* Dark mode */
   .dark-theme {
-    background-color: #000;
-    color: #f0f0f0;
+    background-color: varibales.$color-black;
+    color: varibales.$color-neutral-light;
   
     footer {
-      background-color: #000;
-      color: #f0f0f0;
+      background-color: varibales.$color-black;
   
       &::before {
         background: none;
@@ -61,48 +61,33 @@ html {
       &::after {
         background: rgba(0, 0, 0, 0.4);
       }
-  
-      .footer-columns {
-        a,
-        i {
-          color: #f0f0f0;
-        }
-  
-        button {
-          background: #444;
-  
-          &:hover {
-            background: #666;
-          }
-        }
-      }
     }
 
     app-home-page h1,
     app-home-page h3,
     app-home-page em,
     app-home-page .logo strong {
-      color: #000 !important;
+      color: varibales.$color-black !important;
     }
 
     app-home-page .contact-item h3 {
-        color: #fff !important;
+        color: varibales.$color-white !important;
       }
   
     app-course-page h1,
     app-course-page h2,
     app-course-page p {
-      color: #000 !important;
+      color: varibales.$color-black  !important;
     }
   
     app-schema-page h2 {
-      color: #000 !important;
+      color: varibales.$color-black  !important;
     }
   }
 
 /* Responsive design */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2rem !important;
+    font-size: varibales.$font-size-large !important;
   }
 }
