@@ -1,0 +1,250 @@
+@use '../themes.scss' as *;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  
+  main {
+    flex: 1;
+  }
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 0.5rem;
+
+  img {
+    height: 50px;
+    width: auto;
+  }
+
+  strong {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/* NAVIGATION */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: $color-white;
+  position: relative;
+
+  .logo {
+    font-weight: bold;
+    font-size: $font-size-inbetween;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: $font-size-large;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: $font-size-inbetween;
+      position: relative;
+
+      &:hover {
+        color: $color-dark-accent;
+      }
+
+      &.active-link {
+        color: $color-dark-accent;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          height: 2px;
+          width: 100%;
+          background: $color-dark-accent;
+        }
+      }
+    }
+  }
+
+  /* MOBILMENY */
+  @media (max-width: 768px) {
+    .logo img {
+      height: 36px;
+    }
+
+    strong {
+      font-size: $font-size-base;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    nav {
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: none;
+      border-top: 1px solid #ddd;
+      padding: 1rem;
+      z-index: 1000;
+
+      &.open {
+        display: flex;
+      }
+
+      a {
+        font-size: $font-size-medium;
+        padding: 0.5rem 0;
+      }
+    }
+  }
+}
+footer {
+    position: relative;
+    background-color: $color-white;
+    padding: 3rem 1rem;
+    color: $color-neutral-dark;
+    z-index: 1;
+    overflow: hidden;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/assets/background-pattern.jpg') repeat;
+      opacity: 0.5;
+      z-index: -2;
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.5);
+      z-index: -1;
+    }
+  
+    .footer-columns {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      font-size: $font-size-medium;
+  
+      div {
+        flex: 1 1 250px;
+        text-align: center;
+  
+        h4 {
+          margin-bottom: 0.5rem;
+          font-size: $font-size-medium;
+        }
+  
+        a {
+          display: inline-block;
+          margin-bottom: 0.3rem;
+          text-decoration: none;
+          color: $color-black;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+  
+        i {
+          font-size: 2rem;
+          margin: 0.3rem;
+          color: $color-black;
+        }
+  
+        input {
+          padding: 0.4rem;
+          margin-top: 0.4rem;
+          width: 100%;
+          max-width: 220px;
+        }
+  
+        button {
+          margin-top: 0.5rem;
+          padding: 0.5rem 1rem;
+          background: $color-black;
+          color: $color-white;
+          border: none;
+          font-weight: bold;
+          cursor: pointer;
+  
+          &:hover {
+            background: $color-dark-bg;
+          }
+        }
+      }
+    }
+
+
+    
+    // Responsiv design
+    @media (max-width: 768px) {
+      .footer-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1rem 0;
+      }
+  
+      .footer-columns div {
+        flex: 1 1 auto;
+        padding: 0.5rem 0;
+      }
+    }
+  }
+
+  :host-context(.dark-theme) .navbar {
+    background-color: $color-black;
+
+    .menu-toggle {
+      color: $color-white;
+    }
+
+    nav {
+      background: $color-black;
+    }
+    nav a {
+      color: $color-white;
+
+      &:hover,
+      &.active-link {
+        color: $color-dark-mode-hover-links;
+  
+        &::after {
+          background: $color-dark-mode-hover-links;
+        }
+      }
+    }
+  }
