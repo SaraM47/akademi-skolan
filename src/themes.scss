@@ -1,0 +1,52 @@
+@use 'sass:color';
+
+/* Color palette */
+$color-primary: #11AAB0;
+$color-accent: #339999;
+$color-dark-accent: #0e898e;
+$color-warning: #FD7C62;
+$color-link: #3b50ce;
+$color-neutral-dark: #333;
+$color-light:#f0f0f0;
+$color-neutral-light: #f5f5f5;
+$color-gray: #ccc;
+$color-white: #fff;
+$color-black: #000;
+$color-border: #ddd;
+$color-hover: #63D0D4;
+$color-course: #E9F6F5;
+$color-disabled: #94a3b8;
+$color-border: #666;
+$color-dark-bg: #555;
+$color-dark-mode-hover-links: #66d9ef;
+$color-clear-btn: #e11d48;
+$color-clear-btn-hover:#be123c;
+$color-hero-overlay-bg: rgba(255, 255, 255, 0.53);
+$color-url-link: #175F72;
+$color-summary:#F1FAF9;
+$color-summary-strong: #0f766e;
+$color-summary-border: #d1e3e2;
+$color-filter-border:#888;
+$color-filter-border-focus: #2563eb;
+$color-card-btn: #0077cc;
+
+/* Typography */
+$font-base: "Lora", serif;
+$font-size-small: 0.85rem;
+$font-size-base: 1rem;
+$font-size-medium: 1.2rem;
+$font-size-inbetween: 1.5rem;
+$font-size-medium-large: 1.8rem;
+$font-size-large: 2rem;
+$font-size-large-inbetween: 2.5rem;
+$font-size-xlarge: 3rem;
+$font-size-icon-small: 4rem;
+$font-size-icon-big: 6rem;
+
+/* Shadows */
+$shadow-light-card: 0 2px 6px rgba(0,0,0,0.05);
+$shadow-table-wrapper: 0 2px 10px rgba(0, 0, 0, 0.05); 
+$shadow-summary: 0 1px 4px rgba(0, 0, 0, 0.04);
+$shadow-filter-panel: 2px 2px 4px #0000001a;
+$shadow-filter-panel-border: 1px solid rgba(204, 204, 204, 1);
+$shadow-card: 0 1px 4px rgba(0,0,0,0.1);
