@@ -54,7 +54,7 @@ Följande valfria funktioner har implementerats utöver grundkraven:
 - Visar: antal valda kurser i ramschemat och deras totala högskolepoäng i realtid ovanför tabellen.
 
 **Statistikruta i startsidan**
-- Visar:Totalt antal kurser + antal unika ämnen + maxpoäng i kursutbudet (analyserar och presenterar datan på ett nytt sätt).
+- Visar: totalt antal kurser + antal unika ämnen + maxpoäng i kursutbudet (analyserar och presenterar datan på ett nytt sätt).
 
 **Startsida som separat undersida**
 - Hero-bild, introtext, funktionsikoner, kontaktfält m.m.
