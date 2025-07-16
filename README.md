@@ -57,7 +57,7 @@ Följande valfria funktioner har implementerats utöver grundkraven:
 - Visar: totalt antal kurser + antal unika ämnen + maxpoäng i kursutbudet (analyserar och presenterar datan på ett nytt sätt).
 
 **Startsida som separat undersida**
-- Hero-bild, introtext, funktionsikoner, kontaktfält m.m.
+- bildspel (carousel) som växlar mellan tre bilder var 5:e sekund, introtext, funktionsikoner, kontaktfält m.m.
 - Detta är en **tredje** sida utöver de två som krävs (kurser + schema)
 
 **Visuell animation vid "Lägg till" kurs**
