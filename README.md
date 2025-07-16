@@ -53,6 +53,9 @@ Följande valfria funktioner har implementerats utöver grundkraven:
 **Statistikruta i kurssidan**
 - Visar: antal valda kurser i ramschemat och deras totala högskolepoäng i realtid ovanför tabellen.
 
+**Statistikruta i startsidan**
+- Visar:Totalt antal kurser + antal unika ämnen + maxpoäng i kursutbudet (analyserar och presenterar datan på ett nytt sätt).
+
 **Startsida som separat undersida**
 - Hero-bild, introtext, funktionsikoner, kontaktfält m.m.
 - Detta är en **tredje** sida utöver de två som krävs (kurser + schema)
