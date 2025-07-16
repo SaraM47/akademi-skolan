@@ -14,7 +14,7 @@
     <a routerLink="/kurser" routerLinkActive="active-link" (click)="menuOpen = false">Kurser</a>
     <a routerLink="/ramschema" routerLinkActive="active-link" (click)="menuOpen = false">Ramschema</a>
 
-    <!-- Team-toggle button -->
+    <!-- Theme-toggle button -->
     <button (click)="toggleTheme()" class="theme-toggle" aria-label="Växla tema">
       <i class="bi" [ngClass]="isDarkMode ? 'bi-moon-fill' : 'bi-sun-fill'"></i>
     </button>
@@ -29,7 +29,7 @@
   <div class="footer-columns">
     <div>
       <h3>Genväg</h3>
-      <a routerLink="/kurser">Se kurslistan</a><br />
+      <a routerLink="/kurser">Se kurslistan</a><br>
       <a routerLink="/ramschema">Dina ramschema</a>
     </div>
     <div>
